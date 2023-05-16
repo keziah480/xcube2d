@@ -10,7 +10,36 @@ struct GameKey {
 
 class MyGame : public AbstractGame {
 	private:
-		Rect box;
+		
+		// Camera
+
+		Pixel** canvas;
+
+		float lightSource[3] = { -0.1,0.45,-1 };
+		Vertex eye = Vertex(0, 0, -10);
+		float fov = 5;
+		float offsetX = 400;
+		float offsetY = 300;
+
+		// Effects 
+
+		bool blurActive = false;
+		bool antiAliasingActive = false;
+
+		// Scene Objects
+
+		Sphere sphere1;
+		Cuboid mainCube;
+		Cuboid cubes[3];
+		Mesh newMesh;
+
+		int selector = 0;
+
+		float timeT;
+
+		float cubeXVel;
+		float cubeYVel;
+
 
 		Vector2i velocity;
 
